@@ -39,7 +39,7 @@ resource "hcp_project_iam_binding" "group_project_admin" {
 ######################################
 
 # Create the group
-resource "hcp_group" "poject_group" {
+resource "hcp_group" "project_group" {
   display_name = var.group_name
   description  = "${var.group_name} group"
 }
@@ -47,7 +47,7 @@ resource "hcp_group" "poject_group" {
 
 # Get the HCP group from the TFE side
 data "tfe_team" "project_team" {
-  name         = hcp_group.poject_group.display_name
+  name         = hcp_group.project_group.display_name
   organization = data.hcp_organization.org.name
 }
 
